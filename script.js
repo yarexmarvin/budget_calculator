@@ -41,7 +41,7 @@ let expenPer;
 let expenseElem = 0;
 let expensElemPer = 0;
 let startX = 1;
-let widthX = 11;
+let widthX = 10;
 let totalX = 5;
 let newX = 0;
 
@@ -51,6 +51,7 @@ let buttonClearForm = document.querySelector('.clear_form');
 let buttonDeleteAll = document.querySelector('.delete_all');
 
 
+// FOR DELETE ALL BUTTON
 buttonDeleteAll.addEventListener('click', function() {
     let cards = document.querySelectorAll('.newCard');
     for (let card of cards) {
@@ -71,10 +72,9 @@ buttonDeleteAll.addEventListener('click', function() {
     inputName.disabled = false;
     inputIncome.disabled = false;
     inputExpense.disabled = false;
-
-
 });
 
+// CLEAR FORM BUTTON
 buttonClearForm.addEventListener('click', function() {
     inputName.value = '';
     inputAmount.value = '';
@@ -83,7 +83,7 @@ buttonClearForm.addEventListener('click', function() {
     inputSave.value = '';
 });
 
-
+// FOR CHECKBOXES
 if (!inputExpense.checked) {
     inputIncome.checked = true;
 } else if (!inputIncome.checked) {
@@ -112,6 +112,7 @@ if (!amountSave.checked) {
     amountSave.checked = true;
 }
 
+// FOR 'SAVINGS'
 percentSave.addEventListener('click', function() {
     if (percentSave.checked) {
         amountSave.checked = false;
@@ -131,14 +132,13 @@ amountSave.addEventListener('click', function() {
     updateInfo()
 });
 
-
-
 inputSave.addEventListener('blur', function() {
     updateInfo()
 })
 
 
 
+// FOR ADD BUTTON
 buttonAdd.addEventListener('click', function() {
     let reg = /\D+/g;
     if (reg.test(inputAmount.value)) {
