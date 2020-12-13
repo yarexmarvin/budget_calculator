@@ -1021,11 +1021,9 @@
                     .chart_inner_summary {
                         width: 100px;
                         height: 100px;
-                        margin-bottom: -30%;
+                    
                     }
-                    .total_income {
-                        margin-bottom: -10%;
-                    }
+                    
                     .legend_summmary_list {
                         font-size: 12px;
                     }
