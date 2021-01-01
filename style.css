@@ -186,7 +186,7 @@
                     font-weight: 300;
                     letter-spacing: 3px;
                 }
-i {
+.fa, .fab, .fad, .fal, .far, .fas {
 display:flex;
 justify-content: center;
 }
