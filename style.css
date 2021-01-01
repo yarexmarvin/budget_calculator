@@ -522,7 +522,7 @@
                 
                 
 
-.fa-arrow-up, .fa-arrow-down {
+.down i, .up i {
 display:flex;
 justify-content: center;
 }
