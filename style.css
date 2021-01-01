@@ -360,15 +360,16 @@
                 }
                 
                 .input_saving {
-                    width: 30%;
+                    width: 35%;
                     padding: 5px 0 5px 10px;
-                    font-size: 13px;
+                    font-size: 10px;
                     font-weight: 400;
                     color: #252E40;
                     background: #efefef;
                     border: 0;
                     border-radius: 3px;
                     outline: 0;
+                    text-align: center;
                 }
                 
                 .percentage {
@@ -425,6 +426,11 @@
                     border: none;
                 }
                 
+                .fas {
+                    display: flex;
+                    justify-content: center;
+                }
+                
                 .btn-1 {
                     box-sizing: border-box;
                     background: #6E89BF;
@@ -451,7 +457,6 @@
                     font-weight: 400;
                     font-size: 15px;
                     position: absolute;
-                    left: 23%;
                     top: 10%;
                     opacity: 0;
                 }
@@ -496,7 +501,6 @@
                     font-weight: 400;
                     font-size: 15px;
                     position: absolute;
-                    left: 39%;
                     bottom: 10%;
                     opacity: 0;
                 }
@@ -507,12 +511,18 @@
                     border-radius: 10px;
                     font-size: 20px;
                     box-shadow: 0px 6px 15px #c50e0e61;
-                    padding: 5% 35% 40% 35%;
+                    padding: 18% 35% 33% 35%;
                 }
                 
                 .btn-2:hover::after {
                     opacity: 1;
                     transition: all 0.9s;
+                }
+                
+                .brn-2,
+                .btn-1 {
+                    display: flex;
+                    justify-content: center;
                 }
                 
                 @keyframes pulse {
@@ -1079,12 +1089,18 @@
                         margin-left: 2%;
                         margin-top: 0;
                     }
+                    .input_saving::placeholder {
+                        font-size: 10px;
+                    }
                     .save {
                         margin-bottom: 2%;
                         align-items: center;
                     }
                     .input_saving {
-                        height: 20%;
+                        height: 30%;
+                        width: 40%;
+                        text-align: center;
+                        padding: 0 1vh;
                     }
                     .input_group,
                     .save {
@@ -1130,7 +1146,7 @@
                     }
                 }
                 
-                @media (max-width: 450px) {
+                @media (max-width: 550px) {
                     .sidebar {
                         grid-area: 1/1/4/12;
                         flex-wrap: wrap;
@@ -1223,9 +1239,17 @@
                     .menu-icon::after {
                         width: 15px;
                     }
+                    .input_saving {
+                        height: 61%;
+                    }
                 }
                 
                 @media(max-width: 450px) {
+                    .container input {
+                        width: 10%;
+                        font-size: 8px;
+                        position: absolute;
+                    }
                     .sidebar {
                         grid-area: 1/1/5/12;
                     }

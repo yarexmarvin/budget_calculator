@@ -175,7 +175,8 @@ buttonAdd.addEventListener('click', function() {
             let input = document.createElement('input');
             input.value = card1Name.innerHTML;
             card1Name.innerHTML = '';
-            input.addEventListener('blur', function() {
+            input.addEventListener('blur', function(e) {
+
                 card1Name.innerHTML = input.value;
                 card1Name.addEventListener('click', changeName);
             });
