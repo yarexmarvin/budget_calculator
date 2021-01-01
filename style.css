@@ -186,10 +186,7 @@
                     font-weight: 300;
                     letter-spacing: 3px;
                 }
-.fa, .fab, .fad, .fal, .far, .fas {
-display:flex;
-justify-content: center;
-}
+
                 
                 .expenses_header_inner {
                     background-color: #383B40;
@@ -523,11 +520,12 @@ justify-content: center;
                     transition: all 0.9s;
                 }
                 
-                .brn-2,
-                .btn-1 {
-                    display: flex;
-                    justify-content: center;
-                }
+                
+
+.fa-arrow-up, .fa-arrow-down {
+display:flex;
+justify-content: center;
+}
                 
                 @keyframes pulse {
                     0% {
