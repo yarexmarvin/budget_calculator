@@ -186,7 +186,6 @@
                     font-weight: 300;
                     letter-spacing: 3px;
                 }
-
                 
                 .expenses_header_inner {
                     background-color: #383B40;
@@ -520,12 +519,11 @@
                     transition: all 0.9s;
                 }
                 
-                
-
-.down i, .up i {
-display:flex;
-justify-content: center;
-}
+                .down i,
+                .up i {
+                    display: flex;
+                    justify-content: center;
+                }
                 
                 @keyframes pulse {
                     0% {
@@ -1020,10 +1018,9 @@ justify-content: center;
                         position: absolute
                     }
                     .chart_pie {
-                        width: 30%;
-                        flex-wrap: wrap;
-                        align-items: flex-start;
-                        padding: 1%;
+                        display: block;
+                        width: auto;
+                        margin: 2% 1% 0;
                     }
                     .chart_inner_summary {
                         width: 100px;
@@ -1039,7 +1036,9 @@ justify-content: center;
                         display: none;
                     }
                     .legend {
-                        margin-top: 20%;
+                        margin-top: 10%;
+                        display: block;
+                        margin-left: 5%;
                     }
                     .chart_bar_inner {
                         display: none;
@@ -1047,8 +1046,9 @@ justify-content: center;
                     .calculation {
                         display: flex;
                         flex-wrap: wrap;
-                        margin: 0;
-                        padding-top: 1.5%;
+                        justify-content: center;
+                        margin: 1%;
+                        padding: 1.5%;
                         font-size: 15px;
                     }
                     .calculation_header {
@@ -1061,6 +1061,7 @@ justify-content: center;
                     }
                     .row {
                         justify-content: center;
+                        width: 100%;
                     }
                     .row span:nth-child(1) {
                         margin: 0;
@@ -1148,26 +1149,59 @@ justify-content: center;
                     }
                 }
                 
+                @media(max-width: 860px) {
+                    .save {
+                        justify-content: center;
+                    }
+                    .input_saving {
+                        width: 100%;
+                    }
+                    .percentage,
+                    .amountM {
+                        width: 40%;
+                    }
+                    .input_group {
+                        justify-content: center;
+                    }
+                    .income_choice,
+                    .expense_choice {
+                        width: 100%;
+                    }
+                    .income_choice label:nth-child(3),
+                    .expense_choice label:nth-child(3) {
+                        margin-left: 10%;
+                    }
+                    .btn {
+                        line-height: 100%;
+                    }
+                    .btn-3 {
+                        box-shadow: none;
+                    }
+                    .button_sidebar {
+                        margin-right: 2%;
+                    }
+                }
+                
                 @media (max-width: 550px) {
                     .sidebar {
                         grid-area: 1/1/4/12;
                         flex-wrap: wrap;
                     }
                     .chart_pie {
-                        flex-wrap: nowrap;
-                        justify-content: stretch;
-                        padding-left: 15%;
-                        margin-bottom: 10%;
-                        align-items: center;
-                    }
-                    .chart_pie {
                         padding: 0;
+                        margin: 0;
+                        margin-top: 3%;
+                        display: block;
+                        width: 100%;
                     }
                     .legend_summmary_list {
-                        font-size: 12px;
+                        font-size: 15px;
+                        text-transform: uppercase;
                     }
                     .legend {
-                        margin: 0;
+                        margin: 1% 0;
+                        display: flex;
+                        justify-content: center;
                     }
                     .legend_summmary_list {
                         width: max-content;
@@ -1187,12 +1221,14 @@ justify-content: center;
                     }
                     .save {
                         width: 100%;
-                        padding-left: 3%;
-                        margin-bottom: 0;
+                        margin: 0;
                     }
                     .input_group_header,
                     .save_label {
                         display: none;
+                    }
+                    .input_saving {
+                        margin-bottom: 1%;
                     }
                     .button_sidebar {
                         width: 100%;
@@ -1242,7 +1278,12 @@ justify-content: center;
                         width: 15px;
                     }
                     .input_saving {
-                        height: 61%;
+                        height: 45%;
+                        width: 90%;
+                    }
+                    .income_choice,
+                    .expense_choice {
+                        width: 40%;
                     }
                 }
                 
@@ -1251,6 +1292,11 @@ justify-content: center;
                         width: 10%;
                         font-size: 8px;
                         position: absolute;
+                    }
+                    .legend_summmary_list {
+                        font-size: 12px;
+                        text-transform: uppercase;
+                        margin-top: 5%;
                     }
                     .sidebar {
                         grid-area: 1/1/5/12;
@@ -1287,12 +1333,6 @@ justify-content: center;
                 }
                 
                 @media(max-width: 300px) {
-                    .chart_pie {
-                        padding: 0;
-                    }
-                    .legend_summmary_list {
-                        font-size: 12px;
-                    }
                     .income_details p,
                     .expenses_details p {
                         font-size: 8px;
