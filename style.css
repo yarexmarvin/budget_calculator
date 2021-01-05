@@ -57,6 +57,15 @@
                     width: 50%;
                 }
                 
+                .expenseBar {
+                    transition: all linear 0.2s;
+                }
+                
+                .expenseBar:hover {
+                    transform: translate(0, -2%);
+                    fill: red;
+                }
+                
                 .newCard {
                     display: flex;
                     justify-content: space-around;
@@ -81,6 +90,7 @@
                     cursor: pointer;
                     position: absolute;
                     transition: all 200ms ease-out;
+                    transition: background-color 0.3s linear 0.5s;
                     width: 40px;
                 }
                 
@@ -142,6 +152,10 @@
                 
                 .menu-icon:hover .line {
                     width: 100%;
+                }
+                
+                .menu-icon:hover {
+                    background-color: #c2211c;
                 }
                 
                 .menu-icon:hover .line.top {

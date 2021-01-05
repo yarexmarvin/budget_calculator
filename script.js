@@ -480,7 +480,8 @@ function createBar() {
         newRect.setAttribute('y', `${100-expensElemPer}`);
         newRect.setAttribute('width', `${widthX}`);
         newRect.setAttribute('height', `${expensElemPer}`);
-        newRect.setAttribute('stroke', 'lightskyblue');
+        newRect.setAttribute('stroke', 'transparent');
+        newRect.setAttribute('fill', 'lightcoral');
         newX = newRect.getAttribute('x');
         totalX = Number(newX) + widthX;
         bars.appendChild(newRect);
