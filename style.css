@@ -1184,8 +1184,12 @@
                 
                 @media (max-width: 550px) {
                     .sidebar {
-                        grid-area: 1/1/4/12;
+                        grid-area: 1/1/5/12;
                         flex-wrap: wrap;
+                    }
+                    .header {
+                        display: flex;
+                        align-items: center;
                     }
                     .chart_pie {
                         padding: 0;
@@ -1246,12 +1250,12 @@
                     }
                     /* end sidebar */
                     .header {
-                        grid-area: 4/1/5/12;
+                        grid-area: 5/1/6/12;
                     }
                     .main_header_inner,
                     .income_header_inner,
                     .expenses_header_inner {
-                        padding: 0 2%;
+                        padding: 5% 7%;
                         font-size: 15px;
                         /* end header */
                     }
@@ -1262,9 +1266,9 @@
                         font-size: 10px;
                         color: white;
                     }
-                    .container {
-                        grid-area: 5/1/8/12;
-                    }
+                    /* .container {
+                        grid-area: 7/1/8/12;
+                    } */
                     .newCard {
                         font-size: 11px;
                         justify-content: space-evenly;
@@ -1284,6 +1288,13 @@
                     .income_choice,
                     .expense_choice {
                         width: 40%;
+                    }
+                    .header_button {
+                        width: auto;
+                    }
+                    .btn-1,
+                    .btn-2 {
+                        width: 30px;
                     }
                 }
                 
@@ -1307,7 +1318,6 @@
                     .main_header_inner,
                     .income_header_inner,
                     .expenses_header_inner {
-                        padding: 0 1%;
                         font-size: 12px;
                         /* end header */
                     }
@@ -1332,10 +1342,27 @@
                     }
                 }
                 
-                @media(max-width: 300px) {
+                @media(max-width: 350px) {
                     .income_details p,
                     .expenses_details p {
                         font-size: 8px;
                         margin-right: 5px;
+                    }
+                    .btn-1,
+                    .btn-2 {
+                        width: 18px;
+                        height: 25px;
+                        font-size: 10px;
+                    }
+                    .main_header_inner,
+                    .income_header_inner,
+                    .expenses_header_inner {
+                        font-size: 8px;
+                    }
+                    .button_sidebar {
+                        margin: 0 2%;
+                    }
+                    .button_sidebar button {
+                        font-size: 10px;
                     }
                 }
