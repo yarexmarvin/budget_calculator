@@ -461,11 +461,39 @@ function updateInfo() {
     expenPer = (expenses / income) * 100;
     expenOff = -savePer - remainPer;
 
+
+    console.log('Income: ' , income);
+    console.log('Remainings: ' , remainings);
+    console.log('Saving: ' , saving);
+    console.log('Expenses: ' , expenses);
+
+
+    console.log('% remainings ', remainPer)
+    console.log('% savings ', savePer)
+    console.log('% expenses ', expenPer)
+    console.log(expenOff)
+
+    
+
+
     chartRemainings.setAttribute('stroke-dasharray', `${remainPer} 100`);
     chartSavings.setAttribute('stroke-dasharray', `${savePer} 100`);
     chartSavings.setAttribute('stroke-dashoffset', `-${remainPer}`);
     chartExpenses.setAttribute('stroke-dasharray', `${expenPer} 100`);
     chartExpenses.setAttribute('stroke-dashoffset', `${expenOff}`);
+
+    if(!(remainings < 0)){
+       document.querySelector('.bar-chart_remainings').style.width = remainPer + `%`;
+    document.querySelector('.bar-chart_savings').style.width = savePer + `%`;
+    document.querySelector('.bar-chart_expenses').style.width = expenPer + `%`;
+    } else {
+        alert(`You have exceded your budget on ${remainings} $ !!! `)
+        document.querySelector('.bar-chart_remainings').style.width = 0 + `%`;
+    document.querySelector('.bar-chart_savings').style.width = 0 + `%`;
+    document.querySelector('.bar-chart_expenses').style.width = 100 + `%`;
+    document.querySelector('.bar-chart_expenses').style.backgroundColor = 'red';
+    }
+    document.querySelector('.bar-chart-mobile-remain').innerHTML= `You have ${Math.floor(remainings)} left`; 
 }
 
 
