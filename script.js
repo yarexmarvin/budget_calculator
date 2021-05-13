@@ -45,6 +45,7 @@ let widthX = 10;
 let totalX = 5;
 let newX = 0;
 
+let header = document.querySelector('.header_inner')
 
 let buttonAdd = document.querySelector('.add');
 let buttonClearForm = document.querySelector('.clear_form');
@@ -62,6 +63,10 @@ buttonDeleteAll.addEventListener('click', function() {
     saving = 0;
     remainings = 0;
     totalIncome.innerHTML = 0;
+
+    remainPer = 0;
+    savePer = 0;
+    expenPer = 0;
 
     deleteBars();
     updateInfo();
@@ -81,6 +86,7 @@ buttonClearForm.addEventListener('click', function() {
     inputPrice.value = '';
     inputSave.disabled = false;
     inputSave.value = '';
+    updateInfo();
 });
 
 // FOR CHECKBOXES
@@ -132,8 +138,19 @@ amountSave.addEventListener('click', function() {
     updateInfo()
 });
 
-inputSave.addEventListener('blur', function() {
+inputSave.addEventListener('input', function() {
     updateInfo()
+})
+inputSave.addEventListener('keypress', function(e) {
+    if(e.keyCode == 13)
+    inputSave.blur();
+    updateInfo()
+})
+inputSave.addEventListener('blur', function() {
+    inputSave.style.opacity = 0.5;
+})
+inputSave.addEventListener('focus', function() {
+    inputSave.style.opacity = 1;
 })
 
 
@@ -175,10 +192,12 @@ buttonAdd.addEventListener('click', function() {
             let input = document.createElement('input');
             input.value = card1Name.innerHTML;
             card1Name.innerHTML = '';
-            input.addEventListener('blur', function(e) {
-
+            input.addEventListener('keypress', function(e) {
+                if(e.keyCode == 13){
                 card1Name.innerHTML = input.value;
-                card1Name.addEventListener('click', changeName);
+                card1Name.addEventListener('click', changeName);  
+                }
+                
             });
             card1Name.appendChild(input);
             card1Name.removeEventListener('click', changeName);
@@ -191,7 +210,8 @@ buttonAdd.addEventListener('click', function() {
             let input = document.createElement('input');
             input.value = card1Price.innerHTML;
             card1Price.innerHTML = '';
-            input.addEventListener('blur', function() {
+            input.addEventListener('keypress', function(e) {
+                if(e.keyCode == 13){
                 card1Price.innerHTML = input.value;
                 card1Sum.innerHTML = Number(card1Price.innerHTML) * Number(card1Amount.innerHTML);
                 let sums = document.querySelectorAll('.sums');
@@ -203,6 +223,8 @@ buttonAdd.addEventListener('click', function() {
                 totalIncome.innerHTML = income;
                 updateInfo();
                 card1Price.addEventListener('click', changePrice);
+                }
+                
             });
             card1Price.appendChild(input);
             card1Price.removeEventListener('click', changePrice);
@@ -215,7 +237,8 @@ buttonAdd.addEventListener('click', function() {
             let input = document.createElement('input');
             input.value = card1Amount.innerHTML;
             card1Amount.innerHTML = '';
-            input.addEventListener('blur', function() {
+            input.addEventListener('keypress', function(e) {
+                if(e.keyCode == 13){
                 card1Amount.innerHTML = input.value;
                 card1Sum.innerHTML = Number(card1Price.innerHTML) * Number(card1Amount.innerHTML);
                 let sums = document.querySelectorAll('.sums');
@@ -226,6 +249,8 @@ buttonAdd.addEventListener('click', function() {
                 totalIncome.innerHTML = income;
                 updateInfo();
                 card1Amount.addEventListener('click', changeAmount);
+                }
+                
             });
             card1Amount.appendChild(input);
             card1Amount.removeEventListener('click', changeAmount);
@@ -338,9 +363,12 @@ buttonAdd.addEventListener('click', function() {
             let input = document.createElement('input');
             input.value = card2Name.innerHTML;
             card2Name.innerHTML = '';
-            input.addEventListener('blur', function() {
-                card2Name.innerHTML = input.value;
-                card2Name.addEventListener('click', changeName);
+            input.addEventListener('keypress', function(e) {
+                if(e.keyCode == 13){
+                    card2Name.innerHTML = input.value;
+                    card2Name.addEventListener('click', changeName);
+                }
+                
             });
             card2Name.appendChild(input);
             card2Name.removeEventListener('click', changeName);
@@ -353,8 +381,9 @@ buttonAdd.addEventListener('click', function() {
             let input = document.createElement('input');
             input.value = card2Price.innerHTML;
             card2Price.innerHTML = '';
-            input.addEventListener('blur', function() {
-                card2Price.innerHTML = input.value;
+            input.addEventListener('keypress', function(e) {
+                if(e.keyCode == 13){
+                    card2Price.innerHTML = input.value;
                 card2Sum.innerHTML = Number(card2Price.innerHTML) * Number(card2Amount.innerHTML);
                 let sums_exp = document.querySelectorAll('.sum_exp');
                 expenses = 0;
@@ -366,6 +395,8 @@ buttonAdd.addEventListener('click', function() {
                 createBar();
                 updateInfo();
                 card2Price.addEventListener('click', changeAmount);
+                }
+                
             });
             card2Price.appendChild(input);
             card2Price.removeEventListener('click', changeAmount);
@@ -378,8 +409,9 @@ buttonAdd.addEventListener('click', function() {
             let input = document.createElement('input');
             input.value = card2Amount.innerHTML;
             card2Amount.innerHTML = '';
-            input.addEventListener('blur', function() {
-                card2Amount.innerHTML = input.value;
+            input.addEventListener('keypress', function(e) {
+                if(e.keyCode == 13){
+                     card2Amount.innerHTML = input.value;
                 card2Sum.innerHTML = Number(card2Price.innerHTML) * Number(card2Amount.innerHTML);
                 let sums_exp = document.querySelectorAll('.sum_exp');
                 expenses = 0;
@@ -391,6 +423,7 @@ buttonAdd.addEventListener('click', function() {
                 createBar();
                 updateInfo();
                 card2Amount.addEventListener('click', changeAmount);
+                }
             });
             card2Amount.appendChild(input);
             card2Amount.removeEventListener('click', changeAmount);
@@ -482,16 +515,20 @@ function updateInfo() {
     chartExpenses.setAttribute('stroke-dasharray', `${expenPer} 100`);
     chartExpenses.setAttribute('stroke-dashoffset', `${expenOff}`);
 
-    if(!(remainings < 0)){
-       document.querySelector('.bar-chart_remainings').style.width = remainPer + `%`;
-    document.querySelector('.bar-chart_savings').style.width = savePer + `%`;
-    document.querySelector('.bar-chart_expenses').style.width = expenPer + `%`;
-    } else {
+    if(Number.isNaN(remainPer)){
+        document.querySelector('.bar-chart_remainings').style.width = 0 + `%`;
+        document.querySelector('.bar-chart_savings').style.width = 0 + `%`;
+        document.querySelector('.bar-chart_expenses').style.width = 0 + `%`;
+    } else if(remainings < 0) {
         alert(`You have exceded your budget on ${remainings} $ !!! `)
         document.querySelector('.bar-chart_remainings').style.width = 0 + `%`;
-    document.querySelector('.bar-chart_savings').style.width = 0 + `%`;
-    document.querySelector('.bar-chart_expenses').style.width = 100 + `%`;
-    document.querySelector('.bar-chart_expenses').style.backgroundColor = 'red';
+        document.querySelector('.bar-chart_savings').style.width = 0 + `%`;
+        document.querySelector('.bar-chart_expenses').style.width = 100 + `%`;
+        document.querySelector('.bar-chart_expenses').style.backgroundColor = 'red';
+    } else if(remainings >= 0){
+        document.querySelector('.bar-chart_remainings').style.width = remainPer + `%`;
+    document.querySelector('.bar-chart_savings').style.width = savePer + `%`;
+    document.querySelector('.bar-chart_expenses').style.width = expenPer + `%`;
     }
     document.querySelector('.bar-chart-mobile-remain').innerHTML= `You have ${Math.floor(remainings)} left`; 
 }
@@ -518,9 +555,15 @@ function createBar() {
         let expenseCards = document.querySelectorAll('.expenseCard');
         let expenseBars = document.querySelectorAll('.expenseBar');
 
+        
+      
         expenseBars.forEach(function(item, index) {
             item.addEventListener('mouseover', function() {
-                expenseCards[index].scrollIntoView(false);
+                expenseSection.scroll({
+                    left:0,
+                    top: expenseCards[index].getBoundingClientRect().top ,
+                    behavior: 'smooth'
+                })
                 expenseCards[index].classList.add('hover_bar');
             });
             item.addEventListener('mouseout', function() {
@@ -556,19 +599,49 @@ legendElement.forEach(function(item, index) {
     })
 });
 
-buttonDown.addEventListener('click', function() {
-    let expenseCards = document.querySelectorAll('.expenseCard');
-    let incomeCards = document.querySelectorAll('.incomeCard');
-    console.log(expenseCards.length);
-    console.log(incomeCards.length);
-    expenseCards[expenseCards.length - 1].scrollIntoView(false);
-    incomeCards[incomeCards.length - 1].scrollIntoView(false);
-})
+// buttonDown.addEventListener('click', function() {
+//     let expenseCards = document.querySelectorAll('.expenseCard');
+//     let incomeCards = document.querySelectorAll('.incomeCard');
+//     console.log(expenseCards.length);
+//     console.log(incomeCards.length);
+//     expenseCards[expenseCards.length - 1].scrollIntoView(false);
+//     incomeCards[incomeCards.length - 1].scrollIntoView(false);
+// })
 
-buttonUp.addEventListener('click', function() {
-    let expenseCards = document.querySelectorAll('.expenseCard');
-    let incomeCards = document.querySelectorAll('.incomeCard');
+// buttonUp.addEventListener('click', function() {
+//     let expenseCards = document.querySelectorAll('.expenseCard');
+//     let incomeCards = document.querySelectorAll('.incomeCard');
 
-    expenseCards[0].scrollIntoView(false);
-    incomeCards[0].scrollIntoView(false);
-})
+//     expenseCards[0].scrollIntoView(false);
+//     incomeCards[0].scrollIntoView(false);
+// })
+buttonUp.addEventListener('click', moveUp)
+buttonDown.addEventListener('click', moveDown)
+function moveUp(){
+    incomeSection.scroll({
+        left: 0,
+        top:0,
+        behavior: 'smooth'
+    })
+    expenseSection.scroll({
+        left: 0,
+        top:0,
+        behavior: 'smooth'
+    })
+}
+
+
+function moveDown() {
+    incomeSection.scroll({
+        left: 0,
+        top: incomeSection.scrollHeight,
+        behavior: 'smooth'
+    })
+    expenseSection.scroll({
+        left: 0,
+        top: expenseSection.scrollHeight,
+        behavior: 'smooth'
+    })
+    console.log(incomeSection.scrollHeight)
+    console.log(expenseSection.scrollHeight)
+}

@@ -19,7 +19,8 @@
         <header class="header">
             <div class="header_inner">
 
-                <div class="income_header">
+                <div class="header_titles">
+                   <div class="income_header">
                     <h2 class="income_header_inner">INCOME</h2>
                 </div>
 
@@ -30,7 +31,9 @@
                 <div class="expenses_header">
                     <h2 class="expenses_header_inner">EXPENSES</h2>
                 </div>
+            </div>
 
+            <div class="header_descriptions">
                 <div class="income_details">
                     <p>name</p>
                     <p>price</p>
@@ -50,7 +53,9 @@
                     <p>amount</p>
                     <p>total</p>
                 </div>
-
+ 
+                </div>
+                
             </div>
         </header>
 
@@ -118,7 +123,7 @@
 
                 <div class="row">
                     <span>
-                      <input class="slide-up input_name_inner" id="card" type="text" placeholder="how it can be called" /><label for="card">name</label>
+                      <input class="slide-up input_name_inner" id="card" type="text" placeholder="how it can be called" ><label for="card">name</label>
                     </span>
                     <span>
                       <input class="slide-up input_value_price" id="prc" type="number" placeholder="how much" /><label for="prc">price</label>
@@ -130,7 +135,8 @@
 
                 <div class="input_group">
                     <p class="input_group_header">Is it income or expense?</p>
-                    <div class="income_choice">
+                    <div class="input_group_buttons">
+                      <div class="income_choice">
                         <input style="display: none" class="input_group_income" type="checkbox" id="check_income" required>
                         <label for="check_income" class="toggle"><span></span></label>
                         <label for="check_income">Income</label>
@@ -140,7 +146,9 @@
                         <input style="display: none" class="input_group_expense" type='checkbox' id="check_expense" required>
                         <label for="check_expense" class="toggle"><span></span></label>
                         <label for="check_expense">Expense</label>
+                    </div>  
                     </div>
+                    
 
                 </div>
 
@@ -148,7 +156,8 @@
                     <p class="save_label">how much % do you want to save?</p>
                     <input class="input_saving" placeholder="% or $ from income">
 
-                    <div class="percentage">
+                    <div class="save_buttons">
+                     <div class="percentage">
                         <label for="percent">%</label>
                         <input style="display: none" class="percentage_inner" type="checkbox" id="percent" required>
                         <label for="percent" class="toggle"><span></span></label>
@@ -159,7 +168,9 @@
                         <input style="display: none" class="amount_inner" type='checkbox' id="amount" required>
                         <label for="amount" class="toggle"><span></span></label>
 
+                    </div>   
                     </div>
+                    
                 </div>
 
             </div>
