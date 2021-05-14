@@ -927,7 +927,7 @@ body {
 
 @media(min-width: 1024px){
     html,body{
-        font-size:0.5vw;
+        font-size: 0.5vw;
         height: 100vh;
         overflow:hidden;
     }
@@ -954,6 +954,14 @@ body {
         width: 100%;
         
     }
+    .main_header_inner{
+        font-size: 3.5rem
+    }
+    .income_header_inner,
+    .expenses_header_inner{
+        font-size: 2.5rem;
+    }
+
     .income_header_inner,
     .expenses_header_inner,
     .main_header_inner{
@@ -963,7 +971,9 @@ body {
 .expenses_details p{
     padding: 0.5rem 1.5rem;
 }
-    
+.income_details, .expenses_details{
+    font-size: 2rem;
+}
     
     .sidebar {
         grid-area: 1/1/8/4;
@@ -993,6 +1003,14 @@ body {
     .btn{
         width: 30%;
     }
+    .up,
+.down {
+    
+    width: 7rem;
+    height: 7rem;
+   
+   
+}
     .chart_bar_inner,
 .chart_pie,
 .header_sidebar,
@@ -1100,6 +1118,10 @@ body {
     
     .sum_list_elem {
         position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
         padding-left: 15px;
         margin: 5px 0;
     }
